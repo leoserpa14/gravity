@@ -18,20 +18,20 @@ class MainScreen(FloatLayout):
 	pass
 
 class Planet(Widget):
-	def __init__(self, radius, mass, x, y, vel, **kwargs):
+	def __init__(self, radius, mass, x, y, vel_lin, **kwargs):
 		super().__init__(**kwargs)
 		# Parametros que eu criei
 		self.radius = radius
-		self.mass = mass
-		self.vel = vel
-		self.ax = 0
-		self.ay = 0
+		self.mass = mass # Provavelmente não será necessário
+		self.vel_lin = vel_lin
+
 		# Parametros de Widget
 		self.size = self.radius, self.radius
 		self.center_x = x
 		self.center_y = y
 
 
+# Provavelmente não vou precisar
 G = 6.71*(pow(10, -11)) # N * m² / kg²
 
 
@@ -43,8 +43,8 @@ class GravityApp(App):
 		self.main = MainScreen()
 
 		# Objetos
-		self.sol = Planet(radius=200.510, mass=1000000000000000, x=Window.width/2, y=Window.height/2, vel=[0, 0])
-		self.terra = Planet(radius=63.71, mass=5000000000, x=Window.width*2/3, y=Window.height*3/4, vel=[0, 0])
+		self.sol = Planet(radius=200.510, x=Window.width/2, y=Window.height/2, vel=[0, 0])
+		self.terra = Planet(radius=63.71, x=Window.width*2/3, y=Window.height*3/4, vel=[0, 0])
 
 		Clock.schedule_interval(self.update, 1.0 / 60.0)
 
