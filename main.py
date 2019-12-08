@@ -72,11 +72,25 @@ class MainApp(App):
 		self.main.add_widget(self.marte)
 		self.main.add_widget(self.jupiter)
 		self.main.add_widget(self.saturno)
+
 		self.Anel = []
-		for i in range(50):
+		for i in range(35):
 			lua = Planet(radius=5, dist=50, nome='', parent_planet=self.saturno)
 			self.Anel.append(lua)
 			self.main.add_widget(self.Anel[i])
+
+		self.Anel2 = []
+		for i in range(35):
+			lua = Planet(radius=5, dist=45, nome='', parent_planet=self.saturno)
+			self.Anel2.append(lua)
+			self.main.add_widget(self.Anel2[i])
+
+		self.Anel3 = []
+		for i in range(35):
+			lua = Planet(radius=5, dist=55, nome='', parent_planet=self.saturno)
+			self.Anel3.append(lua)
+			self.main.add_widget(self.Anel3[i])
+
 		return self.main
 
 
@@ -102,8 +116,12 @@ class MainApp(App):
 		self.orbit(self.marte)
 		self.orbit(self.jupiter)
 		self.orbit(self.saturno)
-		for i in range(50):
+		for i in range(35):
 			self.orbit(self.Anel[i])
+		for i in range(35):
+			self.orbit(self.Anel2[i])
+		for i in range(35):
+			self.orbit(self.Anel3[i])
 		return
 
 
